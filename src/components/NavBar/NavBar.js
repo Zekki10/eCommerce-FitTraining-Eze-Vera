@@ -2,6 +2,9 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import CartWidget from '../CartWidget/CartWidget'
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import './NavBar.css'
 
@@ -10,7 +13,12 @@ const NavBar = () => {
         <>
         <nav className="navBar">
             <AppBar className='AppBar' position="static">
-                <Toolbar disableGutters>
+                <Toolbar className='toolbar' disableGutters>
+                    <div className='responsiveButton'>
+                        <IconButton color="inherit" >
+                            <MenuIcon />
+                        </IconButton>
+                    </div>
                     <img className='img_logo' src="../logofit.png" alt='logo' />
 
                     <ul className='nav_container'>
@@ -19,6 +27,7 @@ const NavBar = () => {
                         <li className='nav_item'>Gym</li>
                         <li className='nav_item'>Contact</li>
                     </ul>
+                    <CartWidget />
                 </Toolbar>
             </AppBar>
         </nav>
