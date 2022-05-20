@@ -1,0 +1,8 @@
+.button_container {
+    display: flex;
+    padding-bottom: 5px;
+    justify-content: center;
+}
+span {
+    padding: 0 30%;
+}

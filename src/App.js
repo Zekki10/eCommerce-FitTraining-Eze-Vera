@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './helpers/Theme'
-import Cardlist from './components/CardList/CardList';
+import Itemlist from './components/ItemList/ItemList';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <div className="App">
           <NavBar/>
           <div className="market">
-            <Cardlist title={'Productos Recomendados'} />
+            <Itemlist title={'Productos Recomendados'} />
           </div>
         </div>
     </ThemeProvider>
