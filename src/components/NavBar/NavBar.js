@@ -7,10 +7,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import './NavBar.css'
+import { Container } from '@mui/material';
 
 const NavBar = () => {
     return (
-        <>
+        <Container>
         <nav className="navBar">
             <AppBar className='AppBar' position="static">
                 <Toolbar className='toolbar' disableGutters>
@@ -31,7 +32,7 @@ const NavBar = () => {
                 </Toolbar>
             </AppBar>
         </nav>
-        </>
+        </Container>
     )
 }
 

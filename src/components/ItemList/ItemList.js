@@ -59,22 +59,17 @@ const ItemList = ({title_list}) => {
 
     if (load) {
         return (
-            <>
-        <h2 className='page_title'>{title_list}</h2>
-        <Container className='container' >
-            <span>Loading..</span>
-        </Container>
-    </>
-
-        )
+        <>
+            <Container className='container' >
+                <span>Loading..</span>
+            </Container>
+        </>)
     } else {
 
     return (
         <>
-        <h2 className='page_title'>{title_list}</h2>
         <Container className='container' >
-            <Grid container justifyContent="center" spacing={2} className='grid_container'>
-                
+            <Grid container justifyContent="center" spacing={2} className='grid_container'> 
                 {
                     itemProps.map( ({title, price, pictureUrl, id}) => {
                         return (
