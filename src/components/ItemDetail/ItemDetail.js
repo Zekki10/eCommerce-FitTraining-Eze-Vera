@@ -11,12 +11,31 @@ const itemProps = [
         price: 2500,
         title: 'Kit - Pesas plasticas',
         pictureUrl: 'pesas_clases'
+    },
+    {
+        id:2,
+        price: 5000,
+        title: 'kit - Pesas metalicas',
+        pictureUrl: 'kit_mancuernas'
+    },
+    {
+        id:3,
+        price: 1700,
+        title: 'Colchoneta MIT',
+        pictureUrl: 'colchoneta_mancuerna'
+    },
+    {
+        id:4,
+        price: 10000,
+        title: 'kit - Kettlebells',
+        pictureUrl: 'Kettlebells-Recubiertas'
     }
 ]
 
-export const ItemDetail = ({onClick}) => {
-    const [items, setItems] = useState()
-    const [load, setLoad] = useState(false)
+export const ItemDetail = (props) => {
+    const [items, setItems] = useState([])
+    const [load, setLoad] = useState(true)
+
     const getItems = () => {
         return new Promise( (resolve, reject) => {
             setTimeout( () => {
@@ -28,7 +47,7 @@ export const ItemDetail = ({onClick}) => {
         setLoad(true)
         getItems()
         .then((response) => {
-            setItems(response)
+            // setItems(response)
             setLoad(false)
         })
         .catch( (err) => {
@@ -36,21 +55,27 @@ export const ItemDetail = ({onClick}) => {
         })
     }, [])
 
-   if (!load) {
+    useEffect( () => {
+        setItems(itemProps[props.index-1])
+    }, [])
+    
+    if (load === false ) {
+        
             return (
                 <Container style={{ padding: '0px 0px 0px 0px' }} className="container" >
                     <Grid container justifyContent="center" className='grid_container'> 
                     <Grid item justifyContent="center" md={8} className='product_container'> 
                         {
-                            itemProps.map( ({title, price, pictureUrl, id}) => {
+                            Object.values({items}).map( (item, index) => {
+                              
                                 return (
-                                    <div className="imageContainer" key={id}>
+                                    <div className="imageContainer" key={index}>
                                         <div className="detailPictureContainer">
-                                            <img className="detailPicture" src={`./${pictureUrl}.jpg`} alt="img"></img>
-                                            <img className="detailPicture" src={`./${pictureUrl}.jpg`} alt="img"></img>
-                                            <img className="detailPicture" src={`./${pictureUrl}.jpg`} alt="img"></img>
+                                            <img className="detailPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
+                                            <img className="detailPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
+                                            <img className="detailPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
                                         </div>
-                                        <img className="mainPicture" src={`./${pictureUrl}.jpg`} alt="img"></img>
+                                        <img className="mainPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
                                     </div>
                                 )
                             })
@@ -58,12 +83,12 @@ export const ItemDetail = ({onClick}) => {
                     </Grid>
                     <Grid item justifyContent="center" md={4}>
                                         <Container fixed>
-                                            <Button className="back_button" sx={{position:'absolute'}} variant="text" onClick={onClick}><ArrowBackIcon />Volver</Button>
+                                            <Button className="back_button" sx={{position:'absolute'}} variant="text" onClick={props.onClick}><ArrowBackIcon />Volver</Button>
                                         </Container>
                         {
-                            itemProps.map( ({title, price, pictureUrl, id}) =>{
+                            Object.values({items}).map( ({title, price, pictureUrl, id}, index) =>{
                                 return (
-                                    <div key={id} className="infoContainer">
+                                    <div key={index} className="infoContainer">
                                         <h1>{title}</h1>
                                         <p className="description">Descripcion del producto,
                                             son mancuernas de plastico de varias medidas
@@ -74,9 +99,9 @@ export const ItemDetail = ({onClick}) => {
                                         </div>
                                         <ItemCount></ItemCount>
                                         <Button variant="contained" color='primary' className='button_card'>Buy now</Button>
-
                                     </div>
-                                )
+                                ) 
+                            
                             })
                         }                        
                     </Grid>

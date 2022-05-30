@@ -2,12 +2,12 @@ import Container from '@mui/material/Container';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 
-const ItemDetailContainer = ({onClick}) => {
+const ItemDetailContainer = (props) => {
     
     return (
         
         <Container className='container' >
-            <ItemDetail onClick={onClick} />
+            <ItemDetail index={props.index} onClick={props.onClick} />
         </Container>
     )
 }

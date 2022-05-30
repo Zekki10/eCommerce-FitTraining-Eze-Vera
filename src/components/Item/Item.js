@@ -20,7 +20,7 @@ const style = {
   padding: '3% 0',
 };
 export const Item = (props) => {
-  const {title, price, img} = props;
+  const {title, price, img, id} = props;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -34,7 +34,7 @@ export const Item = (props) => {
         sx={{padding:0}}
       >
         <Box sx={style}>
-          <ItemDetailContainer onClick={handleClose}></ItemDetailContainer>
+          <ItemDetailContainer index={id} onClick={handleClose}></ItemDetailContainer>
         </Box>
       </Modal>
       <Card sx={{minwidth: 250}} className='Card'>

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 
 
-const ItemList = ({title_list}) => {
+const ItemList = (props) => {
     const [items, setItems] = useState([])
     const [load, setLoad] = useState(false)
     const itemProps = [
@@ -74,7 +74,7 @@ const ItemList = ({title_list}) => {
                     itemProps.map( ({title, price, pictureUrl, id}) => {
                         return (
                             <Grid item md={3} key={id}>
-                                <Item title={title} price={price} img={pictureUrl} />
+                                <Item index={props.index} id={id} title={title} price={price} img={pictureUrl} />
                             </Grid>
                         )
                     })
