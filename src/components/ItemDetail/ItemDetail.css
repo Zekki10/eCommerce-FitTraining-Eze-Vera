@@ -1,9 +1,11 @@
-
+* {
+    padding: 0;
+}
+.container_detail{
+    position: relative;
+}
 .grid_container {
     width: 100%;
-}
-.container {
-    padding: 0;
 }
 
 .page_title {
@@ -14,10 +16,12 @@
 .imageContainer {
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 .mainPicture {
-    width: 88%;
-    height: 88%;
+    width: auto;
+    max-height: 450px;
+    
 }
 .detailPictureContainer {
     display: flex;
@@ -28,6 +32,7 @@
 }
 .detailPicture {
     width: 100%;
+    max-width: 100px;
     margin: 0 5% 5% 0;
 }
 .infoContainer {
@@ -42,6 +47,7 @@
 }
 .description {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -61,6 +67,45 @@
     font-weight: 600;
     color: #3ab23a;
 }
-.back_button {
-    transform: translate(130%,-70%);
+.desc_container {
+    position: relative;
+}
+.fixed_container {
+    display: flex;
+    justify-content: right;
+    position: sticky;
+    top: -8%;
+    margin: 0;
+}
+.MuiBox-root {
+    padding-top: 0;
+}
+/* .back_button { 
+    top: 0px;
+    left: 82%;
+} */
+@media (max-width:940px) {
+    * {
+        font-size: 1.1rem;
+    }
+    
+    .mainPicture {
+        max-height: 250px;
+    }
+    .precio {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+    .infoContainer {
+        margin-top: 1%;
+    }
+    .description {
+        max-width: 500px;
+    }
+    .imageContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: sticky;
+    }
 }

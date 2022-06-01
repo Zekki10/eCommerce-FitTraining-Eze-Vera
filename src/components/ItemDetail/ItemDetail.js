@@ -4,33 +4,7 @@ import './ItemDetail.css'
 import Button from '@mui/material/Button';
 import ItemCount from '../ItemCount/ItemCount'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
-const itemProps = [
-    {
-        id: 1,
-        price: 2500,
-        title: 'Kit - Pesas plasticas',
-        pictureUrl: 'pesas_clases'
-    },
-    {
-        id:2,
-        price: 5000,
-        title: 'kit - Pesas metalicas',
-        pictureUrl: 'kit_mancuernas'
-    },
-    {
-        id:3,
-        price: 1700,
-        title: 'Colchoneta MIT',
-        pictureUrl: 'colchoneta_mancuerna'
-    },
-    {
-        id:4,
-        price: 10000,
-        title: 'kit - Kettlebells',
-        pictureUrl: 'Kettlebells-Recubiertas'
-    }
-]
+import itemProps from '../../utils/productsMock'
 
 export const ItemDetail = (props) => {
     const [items, setItems] = useState([])
@@ -40,14 +14,13 @@ export const ItemDetail = (props) => {
         return new Promise( (resolve, reject) => {
             setTimeout( () => {
                 resolve(itemProps)
-            }, 2000 )
+            }, 500 )
         })
     }
     useEffect( () => {
         setLoad(true)
         getItems()
         .then((response) => {
-            // setItems(response)
             setLoad(false)
         })
         .catch( (err) => {
@@ -62,50 +35,48 @@ export const ItemDetail = (props) => {
     if (load === false ) {
         
             return (
-                <Container style={{ padding: '0px 0px 0px 0px' }} className="container" >
-                    <Grid container justifyContent="center" className='grid_container'> 
-                    <Grid item justifyContent="center" md={8} className='product_container'> 
-                        {
-                            Object.values({items}).map( (item, index) => {
-                              
-                                return (
-                                    <div className="imageContainer" key={index}>
-                                        <div className="detailPictureContainer">
-                                            <img className="detailPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
-                                            <img className="detailPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
-                                            <img className="detailPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
+                <Container style={{ padding: '0px 0px 0px 0px', height:'100%' }} className="container_detail" > 
+                    <Grid container justifyContent="center" sx={{height:'80vh'}} className='grid_container'> 
+                        <Grid item justifyContent="center" md={8} className='product_container'> 
+                            {
+                                Object.values({items}).map( (item, index) => {
+                                
+                                    return (
+                                        <div className="imageContainer" key={index}>
+                                            <img className="mainPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
                                         </div>
-                                        <img className="mainPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
-                                    </div>
-                                )
-                            })
-                        }
-                    </Grid>
-                    <Grid item justifyContent="center" md={4}>
-                                        <Container fixed>
-                                            <Button className="back_button" sx={{position:'absolute'}} variant="text" onClick={props.onClick}><ArrowBackIcon />Volver</Button>
-                                        </Container>
-                        {
-                            Object.values({items}).map( ({title, price, pictureUrl, id}, index) =>{
-                                return (
-                                    <div key={index} className="infoContainer">
-                                        <h1>{title}</h1>
-                                        <p className="description">Descripcion del producto,
-                                            son mancuernas de plastico de varias medidas
-                                        </p>
-                                        <div className="precio_container">
-                                            <span className="precio">{`$${price}`}</span>
-                                            <span className="cuotas">{`3 cuotas sin interes de $${Math.round(price/3)}`}</span>
+                                    )
+                                })
+                            }
+                        </Grid>
+                        <Grid item className="desc_container" justifyContent="center" alignItems="center" md={4}>
+                                            
+                            {
+                                Object.values({items}).map( ({title, price, pictureUrl, id}, index) =>{
+                                    return (
+                                        <div key={index} className="infoContainer">
+                                            <h1>{title}</h1>
+                                            <p className="description">Descripcion del producto,
+                                                son mancuernas de plastico de varias medidas
+                                            </p>
+                                            <div className="precio_container">
+                                                <span className="precio">{`$${price}`}</span>
+                                                <span className="cuotas">{`3 cuotas sin interes de $${Math.round(price/3)}`}</span>
+                                            </div>
+                                            <ItemCount id={id}></ItemCount>
+                                            <Button variant="contained" color='primary' className='button_card'>Buy now</Button>
                                         </div>
-                                        <ItemCount></ItemCount>
-                                        <Button variant="contained" color='primary' className='button_card'>Buy now</Button>
-                                    </div>
-                                ) 
-                            
-                            })
-                        }                        
+                                    ) 
+                                
+                                })
+                            }                        
+                            <Grid item sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1}}>
+                                <Container sx={{justfyContent: 'right'}} className='fixed_container' >
+                                    <Button className="back_button"  variant="text" onClick={props.onClick}><ArrowBackIcon />Volver</Button>
+                                </Container>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                </Grid>
                 </Container>
             )
         } else {

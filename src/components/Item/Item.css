@@ -19,6 +19,7 @@
 .img_card:hover {
     cursor:pointer;
     transform: scale(1.5);
+    transition: all 700ms;
 }
 h3 {
     margin: 0;

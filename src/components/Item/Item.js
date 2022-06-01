@@ -6,19 +6,8 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 import { useState } from 'react'
+import { style } from '../../utils/productsMock'
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '80%',
-  maxWidth: '900px',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  padding: '3% 0',
-};
 export const Item = (props) => {
   const {title, price, img, id} = props;
   const [open, setOpen] = useState(false);
@@ -34,7 +23,7 @@ export const Item = (props) => {
         sx={{padding:0}}
       >
         <Box sx={style}>
-          <ItemDetailContainer index={id} onClick={handleClose}></ItemDetailContainer>
+          <ItemDetailContainer index={id} open={open} setOpen={setOpen}></ItemDetailContainer>
         </Box>
       </Modal>
       <Card sx={{minwidth: 250}} className='Card'>
@@ -46,6 +35,7 @@ export const Item = (props) => {
         {/* <ItemCount /> */}
         <Button variant="contained" color='primary' className='button_card'>Add to cart:</Button>
       </Card>
+
     </>
   )
 }

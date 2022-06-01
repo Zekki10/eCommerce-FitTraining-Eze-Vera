@@ -3,7 +3,9 @@
     font-family: 'Didact Gothic', sans-serif;
     box-sizing: border-box;
 }
-
+.nav_container {
+    background-color: #000;
+}
 .navBar {
     /* float: left; */
     width: 100%;
@@ -11,6 +13,7 @@
 }
 .AppBar {
     box-sizing: border-box;
+    width: 100%;
     
 }
 .toolbar {
@@ -26,11 +29,11 @@
 
 .nav_container {
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
     list-style: none;
     font-weight:900;
-    margin: 0;
+    margin-left: 1%;
 }
 .nav_item {
     width: 100%;
@@ -43,16 +46,30 @@
     color: #000;
     transition-duration: 400ms;
 }
+.nav_item:hover :first-child {
+    color: #000;
+    transition-duration: 400ms;
+}
+.link_nav {
+    text-decoration:none;
+    color: #fff;
+}
+.link_nav:hover {
+    color: #000
+}
 .responsiveButton {
+    display: none;
+}
+.menu_icon {
     display: none;
 }
 @media (max-width: 992px) {
     .nav_container {
-        width: 60%;
+        width: 100%;
     }
 
 }
-@media (max-width: 540px) {
+@media (max-width: 600px) {
     .nav_container {
         display: none;
     }

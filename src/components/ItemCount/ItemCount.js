@@ -1,21 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './ItemCount.css';
+import Button from '@mui/material/Button';
+import itemProps from '../../utils/productsMock'
 
-const ItemCount = () => {
+
+const ItemCount = ({id}) => {
     
     const [count, setCount] = useState(1);
-    const [stock, setStock] = useState(5);
+    const [stock, setStock] = useState();
+    
+    const seteaStock = () => {
+        
+        itemProps.map( item => {
+            if (item.id === id) {
+                setStock(item.stock)
+            }
+        })
+    }
 
+    useEffect( () => {
+        seteaStock()
+    }, [])
     return (
-        <div className="button_container">
-            <button onClick={
-                () => {setCount(count-1)}
-            } disabled={count < 2}>-</button>
-                <span>{count}</span>
-            <button onClick={
-                () => {setCount(count+1)}
-            } disabled={count >= stock }>+</button>
-        </div>
+        <>
+            <h4>Add to cart:</h4>
+            <div className="button_container">
+                <Button className="button_count" variant="outlined" size="small" onClick={
+                    () => {setCount(count-1)}
+                } disabled={count < 2}>-</Button>
+                    <span>{count}</span>
+                <Button className="button_count" variant="outlined" size="small" onClick={
+                    () => {setCount(count+1)}
+                } disabled={count >= stock }>+</Button>
+            </div>
+        </>
     )
 
 }
