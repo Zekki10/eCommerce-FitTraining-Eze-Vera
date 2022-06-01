@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 import './ItemDetail.css'
 import Button from '@mui/material/Button';
 import ItemCount from '../ItemCount/ItemCount'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import itemProps from '../../utils/productsMock'
 
 export const ItemDetail = (props) => {
@@ -35,21 +34,22 @@ export const ItemDetail = (props) => {
     if (load === false ) {
         
             return (
-                <Container style={{ padding: '0px 0px 0px 0px', height:'100%' }} className="container_detail" > 
-                    <Grid container justifyContent="center" sx={{height:'80vh'}} className='grid_container'> 
-                        <Grid item justifyContent="center" md={8} className='product_container'> 
+                <Container style={{height:'100%',padding: '0 0 0 0' }} wrap={'wrap'} className="container_detail" > 
+                    <Grid container justifyContent="space-around" sx={{height:'100%',padding: '0px 0px 0px 0px'}} className='grid_container'> 
+                        <Grid item justifyContent="center" sx={{height:'100%',padding: '0px 0px 0px 0px'}} sm={7} md={8} className='product_container'> 
                             {
                                 Object.values({items}).map( (item, index) => {
-                                
+                                    console.log(item.pictureUrl)
+                                    console.log(item)
                                     return (
                                         <div className="imageContainer" key={index}>
-                                            <img className="mainPicture" src={`./${item.pictureUrl}.jpg`} alt="img"></img>
+                                            <img className="mainPicture" src={`/${item.pictureUrl}.jpg`} alt="img"></img>
                                         </div>
                                     )
                                 })
                             }
                         </Grid>
-                        <Grid item className="desc_container" justifyContent="center" alignItems="center" md={4}>
+                        <Grid item className="desc_container" justifyContent="center" alignItems="center"  sm={5} md={4}>
                                             
                             {
                                 Object.values({items}).map( ({title, price, pictureUrl, id}, index) =>{
@@ -70,11 +70,6 @@ export const ItemDetail = (props) => {
                                 
                                 })
                             }                        
-                            <Grid item sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1}}>
-                                <Container sx={{justfyContent: 'right'}} className='fixed_container' >
-                                    <Button className="back_button"  variant="text" onClick={props.onClick}><ArrowBackIcon />Volver</Button>
-                                </Container>
-                            </Grid>
                         </Grid>
                     </Grid>
                 </Container>

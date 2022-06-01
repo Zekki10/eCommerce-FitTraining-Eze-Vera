@@ -1,9 +1,9 @@
 * {
     padding: 0;
 }
-.container_detail{
+/* .container_detail{
     position: relative;
-}
+} */
 .grid_container {
     width: 100%;
 }
@@ -19,26 +19,16 @@
     justify-content: center;
 }
 .mainPicture {
-    width: auto;
-    max-height: 450px;
-    
-}
-.detailPictureContainer {
-    display: flex;
     width: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    max-height: 100%;
+    overflow: hidden;
 }
-.detailPicture {
-    width: 100%;
-    max-width: 100px;
-    margin: 0 5% 5% 0;
-}
+
 .infoContainer {
     width: 100%;
-    height: 90%;
-    margin-top: 10%;
+    height: 100%;
+    margin: 10% 0;
+    padding: 10% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,9 +57,9 @@
     font-weight: 600;
     color: #3ab23a;
 }
-.desc_container {
+/* .desc_container {
     position: relative;
-}
+} */
 .fixed_container {
     display: flex;
     justify-content: right;
@@ -84,13 +74,13 @@
     top: 0px;
     left: 82%;
 } */
-@media (max-width:940px) {
+@media (max-width:1200px) {
     * {
         font-size: 1.1rem;
     }
     
     .mainPicture {
-        max-height: 250px;
+        max-width: 100vw;
     }
     .precio {
         font-size: 1.5rem;
@@ -98,6 +88,8 @@
     }
     .infoContainer {
         margin-top: 1%;
+        width: 100%;
+        padding: 0 1%;
     }
     .description {
         max-width: 500px;
