@@ -1,9 +1,36 @@
-
+import { useState, useEffect } from 'react';
+import ItemList from '../components/ItemList/ItemList';
+import './Home.css'
+import itemProps from "../utils/productsMock"
 
 
 export const Home = () => {
+    const [item, setItem] = useState([])
+
+    useEffect( () => {
+        filtrarItems(itemProps)
+    }, [])
+
+    const filtrarItems = (array) => {
+        return array.map( (items) => {
+            //esto luego lo haré dinamico
+            if(items.id == 7 || items.id == 2 || items.id == 13 ||items.id ==  9) {
+                return setItem(item => [...item, items])
+            }
+        })
+    }
 
     return (
-        <h1>Home</h1>
+        <> 
+            <div className="body_home">
+                <section className="section_1">
+                    <video src="./fitness_back.mp4" autoPlay  muted loop poster="https://carontestudio.com/img/contacto.jpg"></video>
+                    <img alt='logo' src='./maxfitlogo.png' className='logo_fit' />
+                    <img alt='mercadoenvios' src='./malenvios.png' className='section_2' />
+                </section>
+            </div>
+            <h1>Producto más vendidos</h1>
+            <ItemList className='itemHomeList' itemProps={item} />
+        </>
     )
 }

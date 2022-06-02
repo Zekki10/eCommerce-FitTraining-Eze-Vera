@@ -1,0 +1,24 @@
+.section_1 {
+    width: 100%;
+    background-color: #3333337d;
+    color: #fff;
+    height: 100%;
+    position: relative;
+}
+
+video {
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+}
+.info_web {  
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #ffffffdd;
+    font-size: 150%;
+}

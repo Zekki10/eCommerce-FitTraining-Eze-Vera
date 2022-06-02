@@ -9,9 +9,10 @@ export const ProductList = () => {
     const { category } = useParams()
    
     useEffect( () => {
-        setItems([])
+        
         getItems()
         .then((response) => {
+            setItems([])
             filterItems(response)
         })
         
@@ -35,7 +36,7 @@ export const ProductList = () => {
     
         return (
                 <Container>
-                    <h2 className='page_title'>seleccionados</h2>
+                    <h2 className='page_title'>{category}</h2>
                     <Container className='container' >
                         <ItemList itemProps={items} />
                     </Container>

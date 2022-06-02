@@ -70,10 +70,7 @@
 .MuiBox-root {
     padding-top: 0;
 }
-/* .back_button { 
-    top: 0px;
-    left: 82%;
-} */
+
 @media (max-width:1200px) {
     * {
         font-size: 1.1rem;

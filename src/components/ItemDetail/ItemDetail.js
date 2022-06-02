@@ -30,6 +30,7 @@ export const ItemDetail = (props) => {
     useEffect( () => {
         setItems(itemProps[props.index-1])
     }, [])
+
     
     if (load === false ) {
         
@@ -39,11 +40,10 @@ export const ItemDetail = (props) => {
                         <Grid item justifyContent="center" sx={{height:'100%',padding: '0px 0px 0px 0px'}} sm={7} md={8} className='product_container'> 
                             {
                                 Object.values({items}).map( (item, index) => {
-                                    console.log(item.pictureUrl)
-                                    console.log(item)
+                             
                                     return (
                                         <div className="imageContainer" key={index}>
-                                            <img className="mainPicture" src={`/${item.pictureUrl}.jpg`} alt="img"></img>
+                                            <img className="mainPicture" src={`/${item.pictureUrl}`} alt="img"></img>
                                         </div>
                                     )
                                 })

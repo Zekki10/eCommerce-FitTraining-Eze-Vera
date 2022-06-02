@@ -8,6 +8,8 @@ import { NotFound } from './pages/notFound';
 import { Market } from './pages/Market';
 import Detail from './pages/Detail';
 import { ProductList } from './pages/ProductList';
+import { UnderConstruction } from './pages/underConstruction';
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -19,7 +21,7 @@ function App() {
               <Route path='/market' element={<Market title={'Productos Recomendados'} />}/> 
               <Route path='/product/:id' element={<Detail />}/> 
               <Route path='/products/:category' element={<ProductList />}/> 
-              <Route path='*' element={<NotFound />} />            
+              <Route path='*' element={<UnderConstruction />} />            
             </Routes>
           </BrowserRouter>
         </div>

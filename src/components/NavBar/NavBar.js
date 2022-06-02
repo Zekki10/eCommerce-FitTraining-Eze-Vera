@@ -8,13 +8,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from "react-router-dom"
 
 import './NavBar.css'
 import { Box } from '@mui/material';
 
 const NavBar = () => {
-    const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -52,22 +50,23 @@ const NavBar = () => {
                                 onMouseOver={handleClick}
                             >
                                 Market
-                            
-                                <Menu
-                                    className="link_menu_nav"
-                                    id="basic-menu"
-                                    anchorEl={anchorEl}
-                                    open={open}
-                                    onClose={handleClose}
-                                    MenuListProps={{
-                                    'aria-labelledby': 'basic-button',
-                                    }}
-                                >   
-                                    <MenuItem onClick={handleClose}><Link className="link_menu_nav" to='/products/products'>Gym Elements</Link></MenuItem>
-                                    <MenuItem onClick={handleClose}><Link className="link_menu_nav" to="/products/kits">Kits</Link></MenuItem>
-                                    <MenuItem onClick={handleClose}><Link className="link_menu_nav" to="/">Nutrition</Link></MenuItem>
-                                </Menu>
                             </Link>
+                            <Menu
+                                className="link_menu_nav"
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClick={handleClose}
+                                MenuListProps={{
+                                'aria-labelledby': 'basic-button',
+                                }}
+                            >   
+                                <MenuItem onClick={handleClose}><Link className="link_menu_nav" to='/market'><strong>Market</strong></Link></MenuItem>
+                                <MenuItem onClick={handleClose}><Link className="link_menu_nav" to='/products/accessories'>Accessories</Link></MenuItem>
+                                <MenuItem onClick={handleClose}><Link className="link_menu_nav" to="/products/box">Box</Link></MenuItem>
+                                <MenuItem onClick={handleClose}><Link className="link_menu_nav" to="/products/funcional">Funcional</Link></MenuItem>
+                                <MenuItem onClick={handleClose}><Link className="link_menu_nav" to="/products/kits">Kits</Link></MenuItem>
+                            </Menu>
                         </li>
                         <li className='nav_item' ><Link className="link_nav" to="/contact">Contact</Link></li>
                         <li className='nav_item' ><Link className="link_nav" to="/about">About us</Link></li>
