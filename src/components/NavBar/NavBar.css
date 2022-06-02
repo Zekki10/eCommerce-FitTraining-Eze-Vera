@@ -53,7 +53,14 @@
 .link_nav {
     text-decoration:none;
     color: #fff;
+    cursor: pointer;
 }
+.link_menu_nav {
+    text-decoration:none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
 .link_nav:hover {
     color: #000
 }

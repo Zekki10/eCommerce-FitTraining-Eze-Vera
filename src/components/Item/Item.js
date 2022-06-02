@@ -17,7 +17,7 @@ export const Item = (props) => {
     <>
       <Card sx={{minwidth: 250}} className='Card'>
         <Button onClick={navigateToItem}>
-          <img className='img_card' src={`./${img}.jpg`} alt="pesas"></img>
+          <img className='img_card' src={`/${img}.jpg`} alt="pesas"></img>
         </Button>
         <h3 className='title_card'>{title}</h3>
         <span className='price_card'>{`$${price}`}</span>
