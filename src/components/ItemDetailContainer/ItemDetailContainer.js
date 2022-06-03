@@ -5,7 +5,7 @@ const ItemDetailContainer = (props) => {
     
     return (
         
-        <Container style={{height:'100%',padding: '0 0 0 0' }} className='container' >
+        <Container style={{height:'80vh',padding: '0 0 0 0' }} className='Detail_container' >
             <ItemDetail index={props.index} />
         </Container>
     )

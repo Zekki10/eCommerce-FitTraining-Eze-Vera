@@ -7,18 +7,20 @@ import itemProps from "../utils/productsMock"
 export const Home = () => {
     const [item, setItem] = useState([])
 
-    useEffect( () => {
-        filtrarItems(itemProps)
-    }, [])
-
+    
+    
     const filtrarItems = (array) => {
         return array.map( (items) => {
             //esto luego lo haré dinamico
-            if(items.id == 7 || items.id == 2 || items.id == 13 ||items.id ==  9) {
+            const recommended = [7, 2, 3, 13]
+            if(recommended.includes(items.id)) {
                 return setItem(item => [...item, items])
             }
         })
     }
+    useEffect( () => {
+        filtrarItems(itemProps)
+    }, [])
 
     return (
         <> 

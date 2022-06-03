@@ -4,7 +4,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './helpers/Theme'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home';
-import { NotFound } from './pages/notFound';
 import { Market } from './pages/Market';
 import Detail from './pages/Detail';
 import { ProductList } from './pages/ProductList';
