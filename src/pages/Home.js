@@ -6,9 +6,6 @@ import itemProps from "../utils/productsMock"
 
 export const Home = () => {
     const [item, setItem] = useState([])
-
-    
-    
     const filtrarItems = (array) => {
         return array.map( (items) => {
             //esto luego lo haré dinamico
@@ -20,6 +17,11 @@ export const Home = () => {
     }
     useEffect( () => {
         filtrarItems(itemProps)
+        
+        return ( () => {
+            setItem([])
+        }
+        )
     }, [])
 
     return (

@@ -16,6 +16,7 @@ const NavBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
+        event.preventDefault()
         setAnchorEl(event.currentTarget);
     };
     const handleClose = (category) => {
@@ -42,7 +43,7 @@ const NavBar = () => {
                     <ul className='nav_container'>
                         <li className='nav_item' ><Link className="link_nav" to="/">Home</Link></li>
                         <li className='nav_item' >
-                            <Link className="link_nav" to="/"
+                            <Link className="nav_item link_nav" to="/"
                                 id="basic-button"
                                 aria-controls={open ? 'basic-menu' : undefined}
                                 aria-haspopup="true"

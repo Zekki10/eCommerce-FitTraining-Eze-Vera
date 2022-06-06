@@ -4,10 +4,8 @@ import Button from '@mui/material/Button';
 import itemProps from '../../utils/productsMock'
 
 
-const ItemCount = ({id}) => {
-    
-    const [count, setCount] = useState(1);
-    const [stock, setStock] = useState();
+const ItemCount = ({id, setQuantity, quantity, setShowButton}) => {
+        const [stock, setStock] = useState();
     
     const seteaStock = () => {
         
@@ -21,18 +19,24 @@ const ItemCount = ({id}) => {
     useEffect( () => {
         seteaStock()
     }, [])
+
     return (
         <>
             <h4>Add to cart:</h4>
             <div className="button_container">
                 <Button className="button_count" variant="outlined" size="small" onClick={
-                    () => {setCount(count-1)}
-                } disabled={count < 2}>-</Button>
-                    <span>{count}</span>
+                    () => {setQuantity(quantity-1)}
+                } disabled={quantity < 2}>-</Button>
+                    <span>{quantity}</span>
                 <Button className="button_count" variant="outlined" size="small" onClick={
-                    () => {setCount(count+1)}
-                } disabled={count >= stock }>+</Button>
+                    () => {setQuantity(quantity+1)}
+                } disabled={quantity >= stock }>+</Button>
             </div>
+            <Button variant="contained" color='primary' onClick={() => {
+                    setShowButton(true); console.log('Añadido al carrito')}}
+                className='button_card'>
+                Add to cart
+            </Button>
         </>
     )
 
