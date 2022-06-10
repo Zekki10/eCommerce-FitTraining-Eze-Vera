@@ -5,12 +5,16 @@ import Button from '@mui/material/Button';
 import ItemCount from '../ItemCount/ItemCount'
 import itemProps from '../../utils/productsMock'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import cartContext from '../../context/cartContext';
 
 export const ItemDetail = (props) => {
     const [items, setItems] = useState([])
     const [load, setLoad] = useState(true)
     const [quantity, setQuantity] = useState(1) 
     const [showButton, setShowButton] = useState(false)
+    const { addProductToCart } = useContext(cartContext)
+
 
     const getItems = () => {
         return new Promise( (resolve, reject) => {
@@ -34,12 +38,7 @@ export const ItemDetail = (props) => {
         setItems(itemProps[props.index-1])
     }, [])
 
-    const addProductToCart = () => {
-        // setShowButton(false)
-        console.log(`se añadieron ${quantity} del producto`, items)
-        console.log('Redireccion al pago')
 
-    }
     
     if (load === false ) {
         
@@ -75,7 +74,7 @@ export const ItemDetail = (props) => {
                                             { !showButton ? 
                                             <ItemCount id={id} quantity={quantity} setQuantity={setQuantity} setShowButton={setShowButton}></ItemCount>
                                             :
-                                            <Button variant="contained" color='primary' onClick={addProductToCart(items)} className='button_card'>
+                                            <Button variant="contained" color='primary' onClick={() => addProductToCart(items,quantity)} className='button_card'>
                                                 <Link to='/cart'>Buy now</Link>
                                             </Button>}
                                         </div>
