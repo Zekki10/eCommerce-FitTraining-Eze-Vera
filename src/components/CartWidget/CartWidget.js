@@ -8,7 +8,7 @@ import CartContext from '../../context/cartContext'
 import './CartWidget.css'
 const CartWidget = () => {
 
-    const { cartListItems, removeItem, clear } = useContext(CartContext)
+    const { cartListItems, removeItem, clear, itemQuantity } = useContext(CartContext)
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -54,6 +54,10 @@ const CartWidget = () => {
                             <div className='cart-prod__info'>
                                 <p>{item.title}</p>
                                 <span>$ {item.price}</span>
+                                <div>
+                                <p>qty:</p>
+                                <span>{itemQuantity}</span>
+                                </div>
                             </div>
                             <div className='cart-prod__action'>
                                 <button >

@@ -5,15 +5,13 @@ import Button from '@mui/material/Button';
 import ItemCount from '../ItemCount/ItemCount'
 import itemProps from '../../utils/productsMock'
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import cartContext from '../../context/cartContext';
+
 
 export const ItemDetail = (props) => {
     const [items, setItems] = useState([])
     const [load, setLoad] = useState(true)
     const [quantity, setQuantity] = useState(1) 
     const [showButton, setShowButton] = useState(false)
-    const { addProductToCart } = useContext(cartContext)
 
 
     const getItems = () => {
@@ -51,7 +49,7 @@ export const ItemDetail = (props) => {
                              
                                     return (
                                         <div className="imageContainer" key={index}>
-                                            <img className="mainPicture" src={`/${item.pictureUrl}`} alt="img"></img>
+                                            <img className="mainPicture" src={`/${item.img}`} alt="img"></img>
                                         </div>
                                     )
                                 })
@@ -60,7 +58,7 @@ export const ItemDetail = (props) => {
                         <Grid item className="desc_container" justifyContent="center" alignItems="center"  sm={5} md={4}>
                                             
                             {
-                                Object.values({items}).map( ({title, price, pictureUrl, id}, index) =>{
+                                Object.values({items}).map( ({title, price, img, id}, index) =>{
                                     return (
                                         <div key={index} className="infoContainer">
                                             <h1>{title}</h1>
@@ -72,9 +70,9 @@ export const ItemDetail = (props) => {
                                                 <span className="cuotas">{`3 cuotas sin interes de $${Math.round(price/3)}`}</span>
                                             </div>
                                             { !showButton ? 
-                                            <ItemCount id={id} quantity={quantity} setQuantity={setQuantity} setShowButton={setShowButton}></ItemCount>
+                                            <ItemCount id={id} items={items} quantity={quantity} setQuantity={setQuantity} setShowButton={setShowButton}></ItemCount>
                                             :
-                                            <Button variant="contained" color='primary' onClick={() => addProductToCart(items,quantity)} className='button_card'>
+                                            <Button variant="contained" color='primary' className='button_card'>
                                                 <Link to='/cart'>Buy now</Link>
                                             </Button>}
                                         </div>

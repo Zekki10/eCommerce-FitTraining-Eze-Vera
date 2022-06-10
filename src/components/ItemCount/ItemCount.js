@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import './ItemCount.css';
 import Button from '@mui/material/Button';
 import itemProps from '../../utils/productsMock'
+import { useContext } from 'react';
+import cartContext from '../../context/cartContext';
 
 
-const ItemCount = ({id, setQuantity, quantity, setShowButton}) => {
-        const [stock, setStock] = useState();
-    
+const ItemCount = ({id, setQuantity, quantity, setShowButton, items}) => {
+    const [stock, setStock] = useState();
+    const { addProductToCart } = useContext(cartContext)
+
     const seteaStock = () => {
         
         itemProps.map( item => {
@@ -33,7 +36,7 @@ const ItemCount = ({id, setQuantity, quantity, setShowButton}) => {
                 } disabled={quantity >= stock }>+</Button>
             </div>
             <Button variant="contained" color='primary' onClick={() => {
-                    setShowButton(true); console.log('Añadido al carrito')}}
+                    setShowButton(true); addProductToCart(items,quantity)}}
                 className='button_card'>
                 Add to cart
             </Button>
