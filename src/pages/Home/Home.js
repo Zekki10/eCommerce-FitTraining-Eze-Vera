@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import ItemList from '../components/ItemList/ItemList';
+import ItemList from '../../components/ItemList/ItemList';
 import './Home.css'
-import itemProps from "../utils/productsMock"
+import itemProps from "../../utils/productsMock"
 
 
 export const Home = () => {
@@ -12,7 +12,7 @@ export const Home = () => {
             const recommended = [7, 2, 3, 13]
             if(recommended.includes(items.id)) {
                 return setItem(item => [...item, items])
-            }
+            } return ''
         })
     }
     useEffect( () => {

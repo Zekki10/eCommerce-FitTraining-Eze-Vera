@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer"
-import itemProps from "../utils/productsMock"
+import ItemDetailContainer from "../../components/ItemDetailContainer/ItemDetailContainer"
+import itemProps from "../../utils/productsMock"
 import { useParams, useNavigate } from "react-router-dom"
 const Detail = () => {
     const { id } = useParams()

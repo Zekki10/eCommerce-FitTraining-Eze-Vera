@@ -1,7 +1,7 @@
-import ItemListContainer from "../components/ItemListContainer/ItemListContainer"
+import ItemListContainer from "../../components/ItemListContainer/ItemListContainer"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import itemProps from "../utils/productsMock"
+import itemProps from "../../utils/productsMock"
 
 
 export const Market = ({title}) => {

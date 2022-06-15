@@ -57,9 +57,7 @@
     font-weight: 600;
     color: #3ab23a;
 }
-/* .desc_container {
-    position: relative;
-} */
+
 .fixed_container {
     display: flex;
     justify-content: right;
@@ -69,6 +67,10 @@
 }
 .MuiBox-root {
     padding-top: 0;
+}
+.link_buy {
+    text-decoration: none;
+    color: #fff;
 }
 
 @media (max-width:1200px) {

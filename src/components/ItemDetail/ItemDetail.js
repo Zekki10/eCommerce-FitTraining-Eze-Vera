@@ -72,8 +72,8 @@ export const ItemDetail = (props) => {
                                             { !showButton ? 
                                             <ItemCount id={id} items={items} quantity={quantity} setQuantity={setQuantity} setShowButton={setShowButton}></ItemCount>
                                             :
-                                            <Button variant="contained" color='primary' className='button_card'>
-                                                <Link to='/cart'>Buy now</Link>
+                                            <Button variant="contained"  className='button_card'>
+                                                <Link className="link_buy" to='/cart'>Buy now</Link>
                                             </Button>}
                                         </div>
                                     ) 

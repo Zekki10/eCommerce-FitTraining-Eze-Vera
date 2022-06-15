@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Container } from "@mui/material"
-import ItemList from "../components/ItemList/ItemList"
-import itemProps from "../utils/productsMock"
+import ItemList from "../../components/ItemList/ItemList"
+import itemProps from "../../utils/productsMock"
 import { useParams } from "react-router-dom"
 
 export const ProductList = () => {

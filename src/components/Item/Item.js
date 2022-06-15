@@ -25,7 +25,7 @@ export const Item = (props) => {
         <span className='price_card'>{`$${price}`}</span>
         <Button 
           variant="contained" 
-          color='primary' 
+          // color='primary' 
           className='button_card'
           onClick={() => addProductToCart({title, price, img, id}, 1)}
         >

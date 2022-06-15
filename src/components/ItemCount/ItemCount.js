@@ -35,7 +35,7 @@ const ItemCount = ({id, setQuantity, quantity, setShowButton, items}) => {
                     () => {setQuantity(quantity+1)}
                 } disabled={quantity >= stock }>+</Button>
             </div>
-            <Button variant="contained" color='primary' onClick={() => {
+            <Button variant="contained" onClick={() => {
                     setShowButton(true); addProductToCart(items,quantity)}}
                 className='button_card'>
                 Add to cart

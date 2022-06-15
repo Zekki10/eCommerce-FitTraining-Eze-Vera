@@ -4,13 +4,15 @@ import Menu from '@mui/material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
-import CartContext from '../../context/cartContext'
+import CartContext from '../../context/cartContext';
+import Button from '@mui/material/Button';
 import './CartWidget.css'
 const CartWidget = () => {
 
-    const { cartListItems, removeItem, clear, itemQuantity } = useContext(CartContext)
+    const { cartListItems, removeItem, clear } = useContext(CartContext)
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -47,6 +49,7 @@ const CartWidget = () => {
                     )}
                     {cartListItems.map( (item) => {
                         return(
+                            
                         <div className='item-cart-prod' key={item.id}>
                             <div className='cart-prod__image'>
                                 <img src={`/${item.img}`} alt="prod carrito" />
@@ -56,7 +59,7 @@ const CartWidget = () => {
                                 <span>$ {item.price}</span>
                                 <div>
                                 <p>qty:</p>
-                                <span>{itemQuantity}</span>
+                                <span>{item.qty}</span>
                                 </div>
                             </div>
                             <div className='cart-prod__action'>
@@ -68,7 +71,12 @@ const CartWidget = () => {
                         )
                     })}
                     { cartListItems.length >= 1 && (
+                        <>
+                            <Button variant="contained"  className='button_card'>
+                               <Link className="link_buy" to='/cart'>Buy now</Link>
+                            </Button>
                             <button className='delete-all-button' onClick={clear}>Delete all</button>
+                        </>
                     )} 
                 </div>
             </Menu>

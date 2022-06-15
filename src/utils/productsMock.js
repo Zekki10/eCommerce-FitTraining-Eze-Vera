@@ -34,7 +34,7 @@ const itemProps = [
     {
         id:5,
         price: 900,
-        title: 'Soga para saltar.jpg',
+        title: 'Soga para saltar',
         img: 'soga-saltar.jpg',
         stock: 20,
         category: 'accessories'
