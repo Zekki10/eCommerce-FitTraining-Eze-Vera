@@ -3,9 +3,9 @@ import { useState, useEffect } from "react"
 import './ItemDetail.css'
 import Button from '@mui/material/Button';
 import ItemCount from '../ItemCount/ItemCount'
-import itemProps from '../../utils/productsMock'
 import { Link } from 'react-router-dom';
-
+import { doc, getDoc } from 'firebase/firestore'
+import db from "../../utils/firebaseConfig";
 
 export const ItemDetail = (props) => {
     const [items, setItems] = useState([])
@@ -14,16 +14,19 @@ export const ItemDetail = (props) => {
     const [showButton, setShowButton] = useState(false)
 
 
-    const getItems = () => {
-        return new Promise( (resolve, reject) => {
-            setTimeout( () => {
-                resolve(itemProps)
-            }, 500 )
+    const getItem = async (id) => {
+        const product = doc(db, "Products", id)
+        getDoc(product).then((snapshot) => {
+            if (snapshot.exists()) {
+                setItems({id: snapshot.id, ...snapshot.data()});
+            }
         })
+        return ''
     }
+    
     useEffect( () => {
         setLoad(true)
-        getItems()
+        getItem(props.index)
         .then((response) => {
             setLoad(false)
         })
@@ -32,14 +35,8 @@ export const ItemDetail = (props) => {
         })
     }, [])
 
-    useEffect( () => {
-        setItems(itemProps[props.index-1])
-    }, [])
-
-
     
     if (load === false ) {
-        
             return (
                 <Container style={{height:'100%',padding: '0 0 0 0' }} wrap={'wrap'} className="container_detail" > 
                     <Grid container justifyContent="space-around" sx={{height:'100%',padding: '0px 0px 0px 0px'}} className='grid_container'> 

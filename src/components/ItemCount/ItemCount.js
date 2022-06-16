@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import './ItemCount.css';
 import Button from '@mui/material/Button';
-import itemProps from '../../utils/productsMock'
+// import itemProps from '../../utils/productsMock'
 import { useContext } from 'react';
 import cartContext from '../../context/cartContext';
 
 
 const ItemCount = ({id, setQuantity, quantity, setShowButton, items}) => {
     const [stock, setStock] = useState();
-    const { addProductToCart } = useContext(cartContext)
+    const { addProductToCart, itemProps } = useContext(cartContext)
 
     const seteaStock = () => {
         
         itemProps.map( item => {
             if (item.id === id) {
                 setStock(item.stock)
-            }
+            } return ''
         })
     }
 

@@ -7,6 +7,7 @@ import { useState, useContext } from 'react';
 import CartContext from '../../context/cartContext';
 import Button from '@mui/material/Button';
 import './CartWidget.css'
+
 const CartWidget = () => {
 
     const { cartListItems, removeItem, clear } = useContext(CartContext)

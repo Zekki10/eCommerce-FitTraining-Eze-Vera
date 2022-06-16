@@ -8,9 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-import './NavBar.css'
 import { Box } from '@mui/material';
+import './NavBar.css'
 
 const NavBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);

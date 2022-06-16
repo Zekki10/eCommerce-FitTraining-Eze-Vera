@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import './Home.css'
-import itemProps from "../../utils/productsMock"
-
+// import itemProps from "../../utils/productsMock"
+import { useContext } from 'react';
+import cartContext from '../../context/cartContext';
 
 export const Home = () => {
     const [item, setItem] = useState([])
+    const { itemProps } = useContext(cartContext)
+
     const filtrarItems = (array) => {
         return array.map( (items) => {
             //esto luego lo haré dinamico
-            const recommended = [7, 2, 3, 13]
+            const recommended = ['2ANKQY9XNv9qdVQDcsw2', 'n26xZnr3ce54uI1BDmGK', 'uxBziL8pWom0k5KIui6O', 'hpmZqdvWcyIn5jWFjrNx']
             if(recommended.includes(items.id)) {
                 return setItem(item => [...item, items])
             } return ''
@@ -17,7 +20,6 @@ export const Home = () => {
     }
     useEffect( () => {
         filtrarItems(itemProps)
-        
         return ( () => {
             setItem([])
         }

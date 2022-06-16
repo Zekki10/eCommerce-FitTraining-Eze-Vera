@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { Container } from "@mui/material"
 import ItemList from "../../components/ItemList/ItemList"
-import itemProps from "../../utils/productsMock"
 import { useParams } from "react-router-dom"
+import getItems from "../../utils/getItems";
 
 export const ProductList = () => {
     const [items, setItems] = useState([])
@@ -18,20 +18,15 @@ export const ProductList = () => {
         
     }, [category])
 
-    const getItems = () => {
-        return new Promise( (resolve, reject) => {
-            // setTimeout( () => {
-                resolve(itemProps)
-            // }, 2000 )
-        })
-    }
     const filterItems = (array) => {
         return array.map( (item) => {
-            if(item.category == category) {
+            if(item.category === category) {
+                
                 return setItems(items => [...items, item])
-            }
+            } return ''
         })
     }
+    console.log(items)
       
     
         return (
