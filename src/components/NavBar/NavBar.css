@@ -48,6 +48,7 @@
 }
 .nav_item:hover :first-child {
     color: #000;
+    background-color: none;
     transition-duration: 400ms;
 }
 .link_nav {
@@ -62,7 +63,8 @@
 }
 
 .link_nav:hover {
-    color: #000
+    color: #000;
+    background-color: none;
 }
 .responsiveButton {
     display: none;

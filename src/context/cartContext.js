@@ -11,6 +11,7 @@ const CartProvider = ({children}) => {
     const [itemQuantity, setItemQuantity ] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
     const [itemProps, setItemProps] = useState([])
+    const [cartQuantity, setCartQuantity] = useState(0)
     const { category } = useParams()
 
 
@@ -29,6 +30,7 @@ const CartProvider = ({children}) => {
             setTotalPrice(totalPrice+product.qty*product.price)
             setCartListItems(cartListItems=> [...cartListItems,product])
             setItemQuantity(quantity)
+            setCartQuantity(cartQuantity + quantity)
         } 
     }
     const removeItem = (id) => {
@@ -37,12 +39,14 @@ const CartProvider = ({children}) => {
         cartListItems.map((product) => {
             if (product.id === id) {
                 setTotalPrice(totalPrice - product.qty*product.price)
+                setCartQuantity(cartQuantity - product.qty)
             } return ''
         })
     }
     const clear = () => {
         setCartListItems([])
         setTotalPrice(0)
+        setCartQuantity(0)
     }
 
     const data = {
@@ -53,7 +57,8 @@ const CartProvider = ({children}) => {
         itemQuantity,
         setItemQuantity,
         totalPrice,
-        itemProps
+        itemProps,
+        cartQuantity
     }
     
     return (

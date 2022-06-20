@@ -14,9 +14,10 @@ import './NavBar.css'
 const NavBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+
     const handleClick = (event) => {
         event.preventDefault()
-        setAnchorEl(event.currentTarget);
+        setAnchorEl(event.target);
     };
     const handleClose = (category) => {
         setAnchorEl(null);
@@ -42,12 +43,12 @@ const NavBar = () => {
                     <ul className='nav_container'>
                         <li className='nav_item' ><Link className="link_nav" to="/">Home</Link></li>
                         <li className='nav_item' >
-                            <Link className="nav_item link_nav" to="/"
+                            <Link className="link_nav" to="/"
                                 id="basic-button"
                                 aria-controls={open ? 'basic-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
-                                onMouseOver={handleClick}
+                                onClick={handleClick}
                             >
                                 Market
                             </Link>
@@ -59,6 +60,11 @@ const NavBar = () => {
                                 onClick={handleClose}
                                 MenuListProps={{
                                 'aria-labelledby': 'basic-button',
+                                }}
+                                sx={{
+                                    top:'18px',
+                                    transform: 'translateX(-25px)',
+                                    
                                 }}
                             >   
                                 <MenuItem onClick={handleClose}><Link className="link_menu_nav" to='/market'><strong>Market</strong></Link></MenuItem>

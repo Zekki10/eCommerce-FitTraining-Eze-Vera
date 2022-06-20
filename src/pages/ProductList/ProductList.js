@@ -20,22 +20,18 @@ export const ProductList = () => {
 
     const filterItems = (array) => {
         return array.map( (item) => {
-            if(item.category === category) {
-                
+            if(item.category === category) {   
                 return setItems(items => [...items, item])
             } return ''
         })
-    }
-    console.log(items)
-      
+    }      
     
-        return (
-                <Container>
-                    <h2 className='page_title'>{category}</h2>
-                    <Container className='container' >
-                        <ItemList itemProps={items} />
-                    </Container>
-                </Container>   
-        )
-    }
-// }
+    return (
+            <Container>
+                <h2 className='page_title'>{category}</h2>
+                <Container className='container' >
+                    <ItemList itemProps={items} />
+                </Container>
+            </Container>   
+    )
+}

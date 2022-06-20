@@ -21,7 +21,6 @@ const Detail = () => {
     }, [id])
 
     const productFilter = itemProps.find( (product) => {
-        console.log(product.id, 'vs ', id)
         return product.id === id
     })
 

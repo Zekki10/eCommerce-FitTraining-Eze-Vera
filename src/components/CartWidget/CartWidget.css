@@ -1,3 +1,6 @@
+.cartButton_container {
+    display: flex;
+}
 .cartButton {
     display: block;
     margin: 0 2%;
@@ -79,6 +82,22 @@
 .cart_link {
     text-decoration: none;
     color: #fff;
+}
+.cart_quantity {
+    position: sticky;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-size: .8rem;
+    transform: translate(-18px, 20px);
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    background-color: #ff0000;
+    border-radius: 50%;
 }
 
 @media (max-width: 930px) {

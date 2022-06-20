@@ -1,10 +1,13 @@
+
 .main-table-container {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .table-container {
     margin: 5%;
+    width: 90%
 }
 .delete-button {
     background: none;
@@ -20,6 +23,56 @@
     margin-top: 20%;
 }
 .button_cart {
+    max-width: 150px;
     width: 30%;
-    margin: 5% 0;
+    margin: 2% 0;
+}
+.form_modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 2%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+.form_modal div {
+    width: 100%;
+    padding: 0;
+    margin: 2% 0;
+}
+.message_container {
+    position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+.message_container h1, .message_container  span{
+    width: 100%;
+    text-align: center;
+    padding: 1%;
+
+}
+@media (max-width: 540px) {
+    * {
+        font-size: .8rem;
+    }
+    .row_img {
+        width: 50px;
+        height: 50px;
+    }
+   
 }
