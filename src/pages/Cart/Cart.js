@@ -39,7 +39,7 @@ export const Cart = () => {
       total: 0
     })
     const [success, setSuccess] = useState()
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState(format(new Date(), "yyyy-MM-dd'T'HH:mm:ss"))
     const navigate = useNavigate()
 
     const handleOpen = () => setOpen(true);
@@ -83,7 +83,7 @@ export const Cart = () => {
       const orderDoc = await addDoc(orderFirebase, newOrder)
       console.log("orden generada: ", orderDoc.id)
       setSuccess(orderDoc.id)
-      setDate(orderDoc.date)
+      setDate(format(new Date(), "dd-MM-yyyy' 'HH:mm:ss"))
   }
   const finishOrder = () => {
     clear()
@@ -149,7 +149,7 @@ export const Cart = () => {
             {success ? (
               <div className='message_container'>          
                 <h1>Su compra se completo con exito</h1>
-                <span><strong>Nro de orden: </strong>{success}, <strong>fecha: </strong>{format(new Date(), "yyyy-MM-dd'T'HH:mm:ss")}</span>
+                <span><strong>Nro de orden: </strong>{success}, <strong>fecha: </strong>{date}</span>
                 <Button onClick={finishOrder}>Volver al inicio</Button>
               </div>
             ) : (
