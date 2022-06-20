@@ -39,7 +39,7 @@ export const Cart = () => {
       total: 0
     })
     const [success, setSuccess] = useState()
-    const [date, setDate] = useState(format(new Date(), "yyyy-MM-dd'T'HH:mm:ss"))
+    const [date, setDate] = useState(new Date())
     const navigate = useNavigate()
 
     const handleOpen = () => setOpen(true);
