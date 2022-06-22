@@ -59,9 +59,7 @@ export const ItemDetail = (props) => {
                                     return (
                                         <div key={index} className="infoContainer">
                                             <h1>{title}</h1>
-                                            <p className="description">Descripcion del producto,
-                                                son mancuernas de plastico de varias medidas
-                                            </p>
+                                            <p className="description">Item description</p>
                                             <div className="precio_container">
                                                 <span className="precio">{`$${price}`}</span>
                                                 <span className="cuotas">{`3 cuotas sin interes de $${Math.round(price/3)}`}</span>

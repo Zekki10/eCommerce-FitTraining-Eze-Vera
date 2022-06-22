@@ -1,13 +1,19 @@
 import ItemListContainer from "../../components/ItemListContainer/ItemListContainer"
 import { useContext } from "react"
 import CartContext from '../../context/cartContext';
+import CircularStatic from "../../components/LoadProgress/LoadProgress";
 
 
 
 export const Market = ({title}) => {
-    const { itemProps } = useContext(CartContext)
-  
+    const { itemProps, loading } = useContext(CartContext)
+    
     return (
-        <ItemListContainer items={itemProps} title={title} />
+        <>
+        {loading
+            ? <CircularStatic />
+            : <ItemListContainer items={itemProps} title={title} />
+        }
+        </>
         )
 }

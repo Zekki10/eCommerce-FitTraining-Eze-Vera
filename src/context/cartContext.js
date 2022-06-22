@@ -11,16 +11,19 @@ const CartProvider = ({children}) => {
     const [itemQuantity, setItemQuantity ] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
     const [itemProps, setItemProps] = useState([])
+    const [loading, setLoading] = useState(false)
     const [cartQuantity, setCartQuantity] = useState(0)
     const { category } = useParams()
 
 
     useEffect( () => {
         setItemProps([])
+        setLoading(true)
         getItems()
         .then((response) => {
+            setLoading(false)
             setItemProps(response)
-        })
+        })        
     }, [category])
 
     const addProductToCart = (product, quantity) => {
@@ -58,7 +61,9 @@ const CartProvider = ({children}) => {
         setItemQuantity,
         totalPrice,
         itemProps,
-        cartQuantity
+        cartQuantity,
+        loading,
+        setLoading
     }
     
     return (

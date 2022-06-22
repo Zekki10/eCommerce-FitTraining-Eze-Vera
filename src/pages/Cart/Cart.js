@@ -17,11 +17,7 @@ import { addDoc, collection } from 'firebase/firestore'
 import db from '../../utils/firebaseConfig';
 import { useNavigate } from "react-router-dom";
 import format from 'date-fns/format'
-
 import './Cart.css'
-
-
-
 
 
 export const Cart = () => {
@@ -92,8 +88,8 @@ export const Cart = () => {
   if (cartListItems.length <= 0) {
     return (
       <div className='div-message'>
-        <p>No hay productos agregados al carrito</p>
-        <Link to="/market" >Empezar a comprar</Link>
+        <p>Your cart is empty</p>
+        <Link to="/market" >Shop now</Link>
       </div>
     )
   } else {
@@ -137,7 +133,7 @@ export const Cart = () => {
           </Table>
         </TableContainer>
         <Button variant="contained" onClick={handleOpen} className='button_cart'>
-          <Link className="link_buy" to='/cart' >Terminar compra</Link>
+          <Link className="link_buy" to='/cart'>Check out</Link>
         </Button>
         <div>
           <Modal
@@ -148,21 +144,20 @@ export const Cart = () => {
           >
             {success ? (
               <div className='message_container'>          
-                <h1>Su compra se completo con exito</h1>
-                <span><strong>Nro de orden: </strong>{success}, <strong>fecha: </strong>{date}</span>
-                <Button onClick={finishOrder}>Volver al inicio</Button>
+                <h1>Thank you for your purchase!</h1>
+                <span><strong>Your order number is: </strong>{success}, <strong>date: </strong>{date}</span>
+                <span>We'll email you an order confirmation with details and tracking info.</span>
+                <Button onClick={finishOrder}>Continue Shopping</Button>
               </div>
             ) : (
               <form className='form_modal' onSubmit={handleSubmit}>
-                <label>Ingrese sus datos personales:</label>
+                <label>Contact details:</label>
                 <TextField name='name' onChange={handleChange} id="outlined-basic" label="Name" variant="outlined" />
                 <TextField name='phone' onChange={handleChange} id="outlined-basic" label="Phone" variant="outlined" />
                 <TextField name='email' onChange={handleChange} id="outlined-basic" label="Email" variant="outlined" />
-                <Button variant="contained" type='submit' className='button_cart'>comprar</Button>        
+                <Button variant="contained" type='submit' className='button_cart'>Buy</Button>        
               </form>
-            )
-
-            }
+            )}
           </Modal>
         </div>
       </>

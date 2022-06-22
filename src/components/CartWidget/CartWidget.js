@@ -45,8 +45,8 @@ const CartWidget = () => {
                     <div className='container-item-list-cart'>
                         {cartListItems.length === 0 && (
                             <>
-                                <p>No hay productos agregados al carrito</p>
-                                <Link to="/market" >Empezar a comprar</Link>
+                                <p>Your cart is empty</p>
+                                <Link to="/market" >Shop now</Link>
                             </>
                         )}
                         {cartListItems.map( (item) => {
