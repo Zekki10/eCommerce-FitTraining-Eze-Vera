@@ -11,11 +11,12 @@ export const ProductList = () => {
     const { category } = useParams()
    
     useEffect( () => {
-    
         setItems([])
         filterItems(itemProps)
-
-    }, [category])
+        return ( () => {
+            setItems([])
+        })
+    }, [category, itemProps])
 
     const filterItems = (array) => {
         return array.map( (item) => {
