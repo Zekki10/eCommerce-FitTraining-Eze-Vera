@@ -10,6 +10,7 @@ import { ProductList } from './pages/ProductList/ProductList';
 import { UnderConstruction } from './pages/underConstruction/underConstruction';
 import { Cart } from './pages/Cart/Cart';
 import { CartProvider } from './context/cartContext'
+import { Footer } from './components/Footer/Footer';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path='/cart' element={<Cart />} />
                 <Route path='*' element={<UnderConstruction />} />            
               </Routes>
+            <Footer />
             </BrowserRouter>
           </div>
       </ThemeProvider>

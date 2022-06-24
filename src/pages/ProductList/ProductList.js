@@ -29,8 +29,8 @@ export const ProductList = () => {
     return (
         <> { loading 
             ? <CircularStatic />
-            : <Container>
-                <h2 className='page_title'>{category}</h2>
+            : <Container maxWidth={"xl"} disableGutters={false} sx={{padding:0, margin:0}}>
+                <img src={`/banner_${category}.png`} alt={category} className="banner_img"/>
                 <Container className='container' >
                     <ItemList itemProps={items} />
                 </Container>

@@ -13,7 +13,7 @@ const ItemList = ({itemProps}) => {
                 {
                     itemProps.map( ({title, price, img, id}, index) => {
                         return (
-                            <Grid item md={3} key={index}>
+                            <Grid item sm={4} md={3} key={index}>
                                 <Item index={index} id={id} title={title} price={price} img={img} />
                             </Grid>
                         )

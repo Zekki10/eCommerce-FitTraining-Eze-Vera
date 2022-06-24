@@ -72,6 +72,9 @@
 .menu_icon {
     display: none;
 }
+.MuiPaper-root{
+    border-radius: 0px;
+}
 @media (max-width: 992px) {
     .nav_container {
         width: 100%;

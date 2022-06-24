@@ -3,13 +3,12 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import CartWidget from '../CartWidget/CartWidget'
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Box } from '@mui/material';
 import './NavBar.css'
+import SwipeableTemporaryDrawer from './menuResponsive';
 
 const NavBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,17 +28,8 @@ const NavBar = () => {
         <nav className="navBar">
             <AppBar className='AppBar' position="static">
                 <Toolbar className='toolbar' disableGutters>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                <MenuIcon sx={{ display: { xs: 'flex', sm: 'none' }, mr: 1 }} />
-          </IconButton>
+                    <SwipeableTemporaryDrawer />
                     <img className='img_logo' src="../logofit.png" alt='logo' />
-
                     <ul className='nav_container'>
                         <li className='nav_item' ><Link className="link_nav" to="/">Home</Link></li>
                         <li className='nav_item' >
@@ -63,8 +53,7 @@ const NavBar = () => {
                                 }}
                                 sx={{
                                     top:'18px',
-                                    transform: 'translateX(-25px)',
-                                    
+                                    transform: 'translateX(-25px)'                                   
                                 }}
                             >   
                                 <MenuItem onClick={handleClose}><Link className="link_menu_nav" to='/market'><strong>Market</strong></Link></MenuItem>

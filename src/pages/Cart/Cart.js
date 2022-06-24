@@ -16,12 +16,13 @@ import Modal from '@mui/material/Modal';
 import { addDoc, collection } from 'firebase/firestore'
 import db from '../../utils/firebaseConfig';
 import { useNavigate } from "react-router-dom";
-import format from 'date-fns/format'
+import format from 'date-fns/format';
+import { useForm } from 'react-hook-form'
 import './Cart.css'
 
 
 export const Cart = () => {
-
+    
     const { cartListItems, removeItem, clear, totalPrice } = useContext(CartContext)
     const [open, setOpen] = useState(false);
     const [formValue, setFormValue] = useState({
@@ -37,12 +38,13 @@ export const Cart = () => {
     const [success, setSuccess] = useState()
     const [date, setDate] = useState(new Date())
     const navigate = useNavigate()
+    const { register, handleSubmit, formState : { errors } } = useForm()
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const handleSubmit = (e) => {
-      e.preventDefault()
+    const handleSubmitForm = () => {
+      // e.preventDefault()
       setDate(new Date())
       setOrder({
         ...order, 
@@ -77,7 +79,6 @@ export const Cart = () => {
     const saveData = async (newOrder) => {
       const orderFirebase = collection(db, 'orders')
       const orderDoc = await addDoc(orderFirebase, newOrder)
-      console.log("orden generada: ", orderDoc.id)
       setSuccess(orderDoc.id)
       setDate(format(new Date(), "dd-MM-yyyy' 'HH:mm:ss"))
   }
@@ -150,11 +151,30 @@ export const Cart = () => {
                 <Button onClick={finishOrder}>Continue Shopping</Button>
               </div>
             ) : (
-              <form className='form_modal' onSubmit={handleSubmit}>
+              <form className='form_modal' onSubmit={handleSubmit(handleSubmitForm)}>
                 <label>Contact details:</label>
-                <TextField name='name' onChange={handleChange} id="outlined-basic" label="Name" variant="outlined" />
-                <TextField name='phone' onChange={handleChange} id="outlined-basic" label="Phone" variant="outlined" />
-                <TextField name='email' onChange={handleChange} id="outlined-basic" label="Email" variant="outlined" />
+                <TextField name='name' {...register('name', {
+                   required:true,
+                   minLength:3,
+                   pattern:/^[a-zA-ZÀ-ÿ\s]{1,40}$/
+                   })} onChange={handleChange} id="outlined-basic" label="Name" variant="outlined" />
+                {errors.name?.type === 'required' && <small className='error_message'>This field is required</small>}
+                {errors.name?.type === 'minLength' && <small className='error_message'>Your name must be between 3 and 12 characters long</small>}
+                {errors.name?.type === 'pattern' && <small className='error_message'>It may contain only letters and spaces</small>}
+                <TextField name='phone' type='number' {...register('phone', {
+                  required:true,
+                  pattern:/^\d{7,14}$/,
+                  minLength:7,
+                  })} onChange={handleChange} id="outlined-basic" label="Phone" variant="outlined" />
+                {errors.phone?.type === 'required' && <small className='error_message'>This field is required</small>}
+                {errors.phone?.type === 'minLength' && <small className='error_message'>Your phone must be longer than 3 characters</small>}
+                {errors.phone?.type === 'pattern' && <small className='error_message'>It may contain only numbers</small>}
+                <TextField name='email' {...register('email', {
+                  required: true,
+                  pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+                  })} onChange={handleChange} id="outlined-basic" label="Email" variant="outlined" />
+                {errors.email?.type === 'required' && <small className='error_message'>This field is required</small>}
+                {errors.email?.type === 'pattern' && <small className='error_message'>Enter a valid email adress</small>}
                 <Button variant="contained" type='submit' className='button_cart'>Buy</Button>        
               </form>
             )}

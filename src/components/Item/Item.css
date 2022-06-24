@@ -25,10 +25,16 @@ h3 {
     margin: 0;
 }
 .title_card {
-    padding: 2% 0;;
+    overflow: scroll;
+    padding: 2% 0;
     z-index: 2;
     background-color: #FFF;
+    max-width: 200px;
+    max-height: 2rem;
     width: 100%;
+}
+.title_card::-webkit-scrollbar {
+    display: none;
 }
 .price_card {
     padding-bottom: 5%;
@@ -41,4 +47,8 @@ h3 {
 .button_card {
     width: 80%; 
 }
-
+@media (max-width: 540px) {
+    .title_card {
+        font-size: 1rem;
+    }
+}

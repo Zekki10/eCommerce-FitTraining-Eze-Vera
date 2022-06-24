@@ -1,0 +1,27 @@
+.menu-responsive_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box_list ul div div span{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+}
+.box_list ul li {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.submenu_item {
+    padding-left: 20px;
+}
+
+.img_logo_responsive {
+    margin: 30px 40px 40px;
+}
+.link_nav_responsive {
+    text-decoration: none;
+    color: #000;
+}

@@ -29,7 +29,7 @@ export const Item = (props) => {
           className='button_card'
           onClick={() => addProductToCart({title, price, img, id}, 1)}
         >
-          Add to cart:
+          Add to cart
         </Button>
       </Card>
     </>

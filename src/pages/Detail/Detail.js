@@ -12,7 +12,6 @@ const Detail = () => {
     const { itemProps } = useContext(cartContext)
     
     useEffect(() => {
-        console.log(productFilter)
         if(productFilter === undefined){
             navigate('/notFound')
         }else {

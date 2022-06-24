@@ -1,0 +1,19 @@
+.shop-button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5%;
+    background-color: transparent;
+}
+.shop_img {
+    margin: 0 auto;
+    width: 70%;
+    transform: scale(1);
+    transition: all 500ms linear;
+    /* filter: drop-shadow(0 0 2px #56b304 ); */
+}
+.shop_img:hover {
+    transform: scale(1.1);
+    transition: all 500ms linear;
+}
