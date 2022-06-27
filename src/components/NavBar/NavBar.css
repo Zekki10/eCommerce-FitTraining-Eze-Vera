@@ -8,13 +8,13 @@
 }
 .navBar {
     /* float: left; */
+    height: 60px;
     width: 100%;
     border-bottom: 1px solid #000;
 }
 .AppBar {
     box-sizing: border-box;
     width: 100%;
-    
 }
 .toolbar {
     width: 100%;

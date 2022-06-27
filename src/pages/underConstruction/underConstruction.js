@@ -9,7 +9,7 @@ export const UnderConstruction = () => {
                 <video src="./fitness_back.mp4" autoPlay  muted loop poster="https://carontestudio.com/img/contacto.jpg"></video>
                 <h1 className="info_web">UNDER CONSTRUCCTION</h1>
             </section>
-            <Link to={'/market'} className='shop_button under-shop_button'>
+            <Link to={'/market'} className='shop_button under-shop_button blink'>
                     SHOP NOW
             </Link>
             <div className='img_oferta_container'>

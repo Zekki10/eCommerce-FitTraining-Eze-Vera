@@ -26,7 +26,7 @@ const NavBar = () => {
     return (
         <Box sx={{ flexGrow: 1, backgroundColor:'#000' }} className='nav'>
         <nav className="navBar">
-            <AppBar className='AppBar' position="static">
+            <AppBar className='AppBar' position="fixed">
                 <Toolbar className='toolbar' disableGutters>
                     <SwipeableTemporaryDrawer />
                     <img className='img_logo' src="../logofit.png" alt='logo' />

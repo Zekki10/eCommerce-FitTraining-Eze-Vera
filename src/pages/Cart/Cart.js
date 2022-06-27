@@ -157,7 +157,7 @@ export const Cart = () => {
                    required:true,
                    minLength:3,
                    pattern:/^[a-zA-ZÀ-ÿ\s]{1,40}$/
-                   })} onChange={handleChange} id="outlined-basic" label="Name" variant="outlined" />
+                   })} onBlur={handleChange} id="outlined-basic" label="Name" variant="outlined" />
                 {errors.name?.type === 'required' && <small className='error_message'>This field is required</small>}
                 {errors.name?.type === 'minLength' && <small className='error_message'>Your name must be between 3 and 12 characters long</small>}
                 {errors.name?.type === 'pattern' && <small className='error_message'>It may contain only letters and spaces</small>}
@@ -165,14 +165,14 @@ export const Cart = () => {
                   required:true,
                   pattern:/^\d{7,14}$/,
                   minLength:7,
-                  })} onChange={handleChange} id="outlined-basic" label="Phone" variant="outlined" />
+                  })} onBlur={handleChange} id="outlined-basic" label="Phone" variant="outlined" />
                 {errors.phone?.type === 'required' && <small className='error_message'>This field is required</small>}
                 {errors.phone?.type === 'minLength' && <small className='error_message'>Your phone must be longer than 3 characters</small>}
                 {errors.phone?.type === 'pattern' && <small className='error_message'>It may contain only numbers</small>}
                 <TextField name='email' {...register('email', {
                   required: true,
                   pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-                  })} onChange={handleChange} id="outlined-basic" label="Email" variant="outlined" />
+                  })} onBlur={handleChange} id="outlined-basic" label="Email" variant="outlined" />
                 {errors.email?.type === 'required' && <small className='error_message'>This field is required</small>}
                 {errors.email?.type === 'pattern' && <small className='error_message'>Enter a valid email adress</small>}
                 <Button variant="contained" type='submit' className='button_cart'>Buy</Button>        

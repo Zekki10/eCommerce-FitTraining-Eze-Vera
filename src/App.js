@@ -11,6 +11,8 @@ import { UnderConstruction } from './pages/underConstruction/underConstruction';
 import { Cart } from './pages/Cart/Cart';
 import { CartProvider } from './context/cartContext'
 import { Footer } from './components/Footer/Footer';
+import { Contact } from './pages/Contact/Contact';
+import { NotFound } from './pages/notFound'
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
                 <Route path='/product/:id' element={<Detail />}/> 
                 <Route path='/products/:category' element={<ProductList />}/> 
                 <Route path='/cart' element={<Cart />} />
-                <Route path='*' element={<UnderConstruction />} />            
+                <Route path='/contact' element={<Contact />} />            
+                <Route path='/about' element={<UnderConstruction />} />            
+                <Route path='*' element={<NotFound />} />            
               </Routes>
             <Footer />
             </BrowserRouter>
