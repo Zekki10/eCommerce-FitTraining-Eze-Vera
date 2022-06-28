@@ -19,8 +19,7 @@
     justify-content: center;
 }
 .mainPicture {
-    width: auto;
-    max-height: 80vh;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -61,7 +60,7 @@
 .fixed_container {
     display: flex;
     justify-content: right;
-    position: sticky;
+    /* position: sticky; */
     top: -8%;
     margin: 0;
 }
@@ -97,6 +96,6 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        position: sticky;
+        /* position: sticky; */
     }
 }
