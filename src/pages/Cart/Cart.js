@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -96,8 +97,9 @@ export const Cart = () => {
   } else {
     return (
       <>
-        <TableContainer className='main-table-container' sx={{boxShadow:'none'}} component={Paper}>
-          <Table className='table-container' sx={{ minWidth: 280, maxWidth:'80%', padding:0,margin:'0 0 2% 0' }} aria-label="spanning table">
+      <Box sx={{ flexGrow: 1, width:'100%', padding:'10px' }}>
+        <TableContainer sx={{boxShadow:'none', width:'100%'}} component={Paper}>
+          <Table className='table-container' sx={{ minWidth: 280, padding:0,margin:'0 0 2% 0' }} aria-label="spanning table">
             <TableHead>
               <TableRow>
                 <TableCell align="center" colSpan={4}>
@@ -180,6 +182,7 @@ export const Cart = () => {
             )}
           </Modal>
         </div>
+      </Box>
       </>
     )
   }

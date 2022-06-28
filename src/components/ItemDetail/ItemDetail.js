@@ -45,8 +45,8 @@ export const ItemDetail = (props) => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center' }} >
-                        <Grid container justifyContent="space-around" sx={{height:'100%',padding: '0px 0px 0px 0px'}} className='grid_container'> 
-                            <Grid item justifyContent="center" sx={{height:'100%',padding: '0px 0px 0px 0px'}} md={6} xs={12} className='product_container'> 
+                        <Grid container spacing={2}> 
+                            <Grid item md={6} xs={12}> 
                                 {
                                     Object.values({items}).map( (item, index) => {
                                 

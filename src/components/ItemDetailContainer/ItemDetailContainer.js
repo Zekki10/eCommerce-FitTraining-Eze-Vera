@@ -1,13 +1,13 @@
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = (props) => {
     
     return (
         
-        <Container style={{height:'80vh',padding: '0 0 0 0' }} className='Detail_container' >
+        <Box sx={{ flexGrow: 1, width:'90%', marginLeft:'5%', padding:'10px' }}>
             <ItemDetail index={props.index} />
-        </Container>
+        </Box>
     )
 }
 

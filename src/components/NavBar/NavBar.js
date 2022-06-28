@@ -51,10 +51,15 @@ const NavBar = () => {
                                 MenuListProps={{
                                 'aria-labelledby': 'basic-button',
                                 }}
-                                sx={{
-                                    top:'18px',
-                                    transform: 'translateX(-25px)'                                   
-                                }}
+                                sx={{borderRadius:'0%'}}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'center',
+                                  }}
+                                  transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'center',
+                                  }}
                             >   
                                 <MenuItem onClick={handleClose}><Link className="link_menu_nav" to='/market'><strong>Market</strong></Link></MenuItem>
                                 <MenuItem onClick={handleClose}><Link className="link_menu_nav" to='/products/accessories'>Accessories</Link></MenuItem>
