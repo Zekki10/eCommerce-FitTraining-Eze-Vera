@@ -1,6 +1,5 @@
 
 # eCommerce con React + Firebase
-### Proyecto aun en desarrollo, fecha de finalizacion prevista 06/07/22
 
 Para el manejo de **estilos** se utilizo la libreria Material UI
 https://mui.com/
